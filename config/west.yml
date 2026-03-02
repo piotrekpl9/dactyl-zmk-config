@@ -2,10 +2,16 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: piotrekpl9
+      url-base: https://github.com/piotrekpl9
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: dactyl-zmk-config
+      remote: piotrekpl9
+      revision: main
+      path: dactyl-zmk-config
   self:
     path: config
