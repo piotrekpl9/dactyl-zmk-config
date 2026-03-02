@@ -1,0 +1,57 @@
+/*
+ * Dactyl Manuform 6x6 – nakładka DTS dla prawej połowy
+ *
+ * Kontroler: nice!nano v2
+ *
+ * ┌─────────────────────────────────────────────────────────────────┐
+ * │ WIERSZE (row) – prawa strona nice!nano, diody col→row           │
+ * │   Row 0 → D10  P0.09  (dolny prawy pin)                        │
+ * │   Row 1 → D16  P0.10                                           │
+ * │   Row 2 → D14  P1.11                                           │
+ * │   Row 3 → D15  P1.13                                           │
+ * │   Row 4 → D19  P0.02                                           │
+ * │   Row 5 → D20  P0.29                                           │
+ * │   Row 6 → D21  P0.31  (górny prawy pin)                        │
+ * │                                                                 │
+ * │ KOLUMNY (col) – lewa strona nice!nano                           │
+ * │   Col 0 → D9   P1.06  (dolny lewy pin)                        │
+ * │   Col 1 → D8   P1.04                                           │
+ * │   Col 2 → D7   P0.11                                           │
+ * │   Col 3 → D5   P0.24  ← zamienione z D4                        │
+ * │   Col 4 → D4   P0.22  ← zamienione z D5                        │
+ * │   Col 5 → D3   P0.20                                           │
+ * │                                                                 │
+ * │ Kierunek diod: col→row (katoda brązowa strona → switch→row)    │
+ * └─────────────────────────────────────────────────────────────────┘
+ */
+
+#include "dactyl_manuform_6x6.dtsi"
+
+/ {
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN_RIGHT";
+        diode-direction = "col2row";
+
+        /* Wiersze = wejścia (INPUT), pull-down aktywny */
+        row-gpios
+            = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 0 – D10 P0.09 */
+            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 1 – D16 P0.10 */
+            , <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 2 – D14 P1.11 */
+            , <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 3 – D15 P1.13 */
+            , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 4 – D19 P0.02 */
+            , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 5 – D20 P0.29 */
+            , <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 6 – D21 P0.31 */
+            ;
+
+        /* Kolumny = wyjścia (OUTPUT), sterowane high */
+        col-gpios
+            = <&pro_micro 9  GPIO_ACTIVE_HIGH>   /* Col 0 – D9  P1.06 */
+            , <&pro_micro 8  GPIO_ACTIVE_HIGH>   /* Col 1 – D8  P1.04 */
+            , <&pro_micro 7  GPIO_ACTIVE_HIGH>   /* Col 2 – D7  P0.11 */
+            , <&pro_micro 5  GPIO_ACTIVE_HIGH>   /* Col 3 – D5  P0.24 (zamienione) */
+            , <&pro_micro 4  GPIO_ACTIVE_HIGH>   /* Col 4 – D4  P0.22 (zamienione) */
+            , <&pro_micro 3  GPIO_ACTIVE_HIGH>   /* Col 5 – D3  P0.20 */
+            ;
+    };
+};

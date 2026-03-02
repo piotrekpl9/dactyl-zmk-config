@@ -1,0 +1,127 @@
+/*
+ * Keymap dla Dactyl Manuform 6x6 (7 wierszy × 6 kolumn per half)
+ * ================================================================
+ * Razem 84 klawisze (7 wierszy × 12 kolumn logicznych)
+ *
+ * Fizyczny układ wierszy:
+ *   Row 0 – D10 – rząd cyfr
+ *   Row 1 – D16 – litery górne (Q W E R T ...)
+ *   Row 2 – D14 – litery środkowe (A S D F G ...)
+ *   Row 3 – D15 – litery dolne (Z X C V B ...)
+ *   Row 4 – D19 – modyfikatory + Backspace/Space
+ *   Row 5 – D20 – klaster kciuka górny
+ *   Row 6 – D21 – klaster kciuka dolny
+ *
+ * Warstwy:
+ *   0 – QWERTY (podstawowa)
+ *   1 – LOWER  (symbole, F1–F12)
+ *   2 – RAISE  (nawigacja, media)
+ *   3 – ADJUST (Bluetooth, reset)
+ *
+ * UWAGA: Wiersze 5 i 6 (klaster kciuka) mają &none na pozycjach
+ * bez fizycznego klawisza. Dostosuj do swojego budowania.
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define L_BASE   0
+#define L_LOWER  1
+#define L_RAISE  2
+#define L_ADJUST 3
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        /* ══════════════════════════════════════════════════════════════════
+         * WARSTWA 0 – QWERTY
+         * ══════════════════════════════════════════════════════════════════
+         *
+         * ┌──────┬──────┬──────┬──────┬──────┬──────┐   ┌──────┬──────┬──────┬──────┬──────┬──────┐
+         * │  `   │  1   │  2   │  3   │  4   │  5   │   │  6   │  7   │  8   │  9   │  0   │  -   │ Row0
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │ Tab  │  Q   │  W   │  E   │  R   │  T   │   │  Y   │  U   │  I   │  O   │  P   │  \   │ Row1
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │ Caps │  A   │  S   │  D   │  F   │  G   │   │  H   │  J   │  K   │  L   │  ;   │  '   │ Row2
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │LShft │  Z   │  X   │  C   │  V   │  B   │   │  N   │  M   │  ,   │  .   │  /   │RShft │ Row3
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │LOWER │ LGUI │ LAlt │LCtrl │  =   │ Bspc │   │Space │Enter │RCtrl │ RAlt │ RGUI │LOWER │ Row4
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │RAISE │ Esc  │ Del  │ Home │ End  │ PgDn │   │ PgUp │ PgDn │ Home │ End  │ Del  │RAISE │ Row5
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │      │      │      │  [   │  ]   │      │   │      │  {   │  }   │      │      │      │ Row6
+         * └──────┴──────┴──────┴──────┴──────┴──────┘   └──────┴──────┴──────┴──────┴──────┴──────┘
+         *
+         * Wiersz 6: kciuk dolny – &none na pozycjach bez fizycznego klawisza.
+         * Dostosuj do swojego klastra kciuka.
+         */
+        default_layer {
+            label = "QWERTY";
+            bindings = <
+                &kp GRAVE   &kp N1    &kp N2    &kp N3    &kp N4     &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
+                &kp TAB     &kp Q     &kp W     &kp E     &kp R      &kp T         &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
+                &kp CAPS    &kp A     &kp S     &kp D     &kp F      &kp G         &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
+                &kp LSHFT   &kp Z     &kp X     &kp C     &kp V      &kp B         &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
+                &mo L_LOWER &kp LGUI  &kp LALT  &kp LCTRL &kp EQUAL  &kp BSPC      &kp SPACE &kp RET   &kp RCTRL &kp RALT  &kp RGUI  &mo L_LOWER
+                &mo L_RAISE &kp ESC   &kp DEL   &kp HOME  &kp END    &kp PG_DN     &kp PG_UP &kp PG_DN &kp HOME  &kp END   &kp DEL   &mo L_RAISE
+                &none       &none     &none     &kp LBKT  &kp RBKT   &none         &none     &kp LBRC  &kp RBRC  &none     &none     &none
+            >;
+        };
+
+        /* ══════════════════════════════════════════════════════════════════
+         * WARSTWA 1 – LOWER (symbole, F1–F12)
+         * ══════════════════════════════════════════════════════════════════
+         */
+        lower_layer {
+            label = "LOWER";
+            bindings = <
+                &kp TILDE   &kp F1    &kp F2    &kp F3    &kp F4     &kp F5        &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+                &trans      &kp EXCL  &kp AT    &kp HASH  &kp DLLR   &kp PRCNT     &kp CARET &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
+                &trans      &kp N1    &kp N2    &kp N3    &kp N4     &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp PLUS
+                &trans      &trans    &trans    &kp UNDER &kp MINUS  &kp LBKT      &kp RBKT  &kp EQUAL &kp LBRC  &kp RBRC  &kp PIPE  &trans
+                &trans      &trans    &trans    &trans    &trans     &trans        &trans    &trans    &trans    &trans    &trans    &trans
+                &mo L_ADJUST &trans  &trans    &trans    &trans     &trans        &trans    &trans    &trans    &trans    &trans    &mo L_ADJUST
+                &trans      &trans    &trans    &trans    &trans     &trans        &trans    &trans    &trans    &trans    &trans    &trans
+            >;
+        };
+
+        /* ══════════════════════════════════════════════════════════════════
+         * WARSTWA 2 – RAISE (nawigacja, media)
+         * ══════════════════════════════════════════════════════════════════
+         */
+        raise_layer {
+            label = "RAISE";
+            bindings = <
+                &trans      &trans    &trans    &trans    &trans     &trans        &trans    &trans    &trans    &trans    &trans       &trans
+                &trans      &trans    &trans    &trans    &trans     &trans        &kp PG_UP &kp HOME  &kp UP    &kp END   &kp INS      &kp DEL
+                &trans      &trans    &trans    &trans    &trans     &trans        &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &kp BSPC     &trans
+                &trans      &trans    &trans    &trans    &trans     &trans        &trans    &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_DN &kp C_VOL_UP
+                &trans      &trans    &trans    &trans    &trans     &trans        &trans    &trans    &trans    &trans    &kp C_MUTE   &trans
+                &trans      &trans    &trans    &trans    &trans     &trans        &trans    &trans    &trans    &trans    &trans       &trans
+                &mo L_ADJUST &trans  &trans    &trans    &trans     &trans        &trans    &trans    &trans    &trans    &trans       &mo L_ADJUST
+            >;
+        };
+
+        /* ══════════════════════════════════════════════════════════════════
+         * WARSTWA 3 – ADJUST (Bluetooth, reset)
+         * Aktywacja: trzymaj LOWER + RAISE jednocześnie
+         * ══════════════════════════════════════════════════════════════════
+         */
+        adjust_layer {
+            label = "ADJUST";
+            bindings = <
+                &sys_reset  &bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3    &bt BT_SEL 4 &none  &none  &none  &none  &sys_reset
+                &bootloader &none        &none        &none        &none        &none           &none        &none  &none  &none  &none  &bootloader
+                &out OUT_USB &none       &none        &none        &none        &none           &none        &none  &none  &none  &none  &out OUT_BLE
+                &none       &none        &none        &none        &none        &none           &none        &none  &none  &none  &none  &none
+                &trans      &none        &none        &none        &none        &none           &none        &none  &none  &none  &none  &trans
+                &trans      &none        &none        &none        &none        &none           &none        &none  &none  &none  &none  &trans
+                &none       &none        &none        &none        &none        &none           &none        &none  &none  &none  &none  &none
+            >;
+        };
+    };
+};

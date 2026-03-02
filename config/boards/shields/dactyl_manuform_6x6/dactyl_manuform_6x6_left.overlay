@@ -1,0 +1,53 @@
+/*
+ * Dactyl Manuform 6x6 – nakładka DTS dla lewej połowy
+ *
+ * Kontroler: nice!nano v2 (nRF52840, kompatybilny z Pro Micro)
+ *
+ * Przypisanie pinów (Pro Micro / nice!nano v2):
+ * ─────────────────────────────────────────────
+ *  WIERSZE (dioda: col→row, pull-down):
+ *    Wiersz 0 → Pro Micro pin 4  (P0.22 – D4)
+ *    Wiersz 1 → Pro Micro pin 5  (P0.24 – C6)
+ *    Wiersz 2 → Pro Micro pin 6  (P1.00 – D7)
+ *    Wiersz 3 → Pro Micro pin 7  (P0.11 – E6)
+ *    Wiersz 4 → Pro Micro pin 8  (P1.04 – B4)
+ *    Wiersz 5 → Pro Micro pin 9  (P1.06 – B5)
+ *
+ *  KOLUMNY (active-high):
+ *    Kolumna 0 → Pro Micro pin 21 (P0.09 – F4)
+ *    Kolumna 1 → Pro Micro pin 20 (P0.10 – F5)
+ *    Kolumna 2 → Pro Micro pin 19 (P1.11 – F6)
+ *    Kolumna 3 → Pro Micro pin 18 (P1.13 – F7)
+ *    Kolumna 4 → Pro Micro pin 15 (P1.15 – B1)
+ *    Kolumna 5 → Pro Micro pin 14 (P1.02 – B3)
+ *
+ * Dostosuj numery pinów do swojego konkretnego okablowania!
+ */
+
+#include "dactyl_manuform_6x6.dtsi"
+
+/ {
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN_LEFT";
+        diode-direction = "col2row";
+
+        row-gpios
+            = <&pro_micro 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 0 */
+            , <&pro_micro 5  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 1 */
+            , <&pro_micro 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 2 */
+            , <&pro_micro 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 3 */
+            , <&pro_micro 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 4 */
+            , <&pro_micro 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 5 */
+            ;
+
+        col-gpios
+            = <&pro_micro 21 GPIO_ACTIVE_HIGH>   /* Kolumna 0 */
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH>   /* Kolumna 1 */
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH>   /* Kolumna 2 */
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>   /* Kolumna 3 */
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>   /* Kolumna 4 */
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>   /* Kolumna 5 */
+            ;
+    };
+};
