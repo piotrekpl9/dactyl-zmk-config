@@ -55,14 +55,14 @@
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
          * │      │      │      │  \   │ Tab  │      │   │ Spc  │Lo+Bs │^PgUp │ PgDn │  [   │  ]   │ Row1 D16 kciuk↑
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │      │      │      │ Ent  │LShft │ Spc  │   │ LAlt │ LGUI │      │      │      │      │ Row0 D10↓ kciuk↓
+         * │      │      │      │ Ent  │LShft │ Spc  │   │ LAlt │ LGUI │RShft │ Ent  │      │      │ Row0 D10↓ kciuk↓
          * └──────┴──────┴──────┴──────┴──────┴──────┘   └──────┴──────┴──────┴──────┴──────┴──────┘
          */
         default_layer {
             label = "QWERTY";
             bindings = <
 /* ──────── Prawa strona (pos 0-5): D6→inner … D9→outer ─────────────── */
-/* Row0 D10↓ kciuk dół  */ &kp LALT  &kp LGUI  &none     &none     &none     &none       &none &none &none &none &none &none
+/* Row0 D10↓ kciuk dół  */ &kp LALT  &kp LGUI  &kp RSHFT &kp RET   &none     &none       &none &none &none &none &none &none
 /* Row1 D16  kciuk górny */ &kp SPACE &lt L_LOWER BSPC &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &none &none &none &none &none &none
 /* Row2 D14  N-rząd      */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT   &none &none &none &none &none &none
 /* Row3 D15  H-rząd      */ &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT     &none &none &none &none &none &none
