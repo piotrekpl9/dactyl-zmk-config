@@ -40,36 +40,35 @@
          * WARSTWA 0 – QWERTY
          * ══════════════════════════════════════════════════════════════════
          *
-         * ┌──────┬──────┬──────┬──────┬──────┬──────┐   ┌──────┬──────┬──────┬──────┬──────┬──────┐
-         * │  F1  │  F2  │  F3  │  F4  │  F5  │  F6  │   │  F7  │  F8  │  F9  │  F10 │  F11 │  F12 │ Row0
-         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │ Esc  │  1   │  2   │  3   │  4   │  5   │   │  6   │  7   │  8   │  9   │  0   │  -   │ Row1
-         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │  `   │  Q   │  W   │  E   │  R   │  T   │   │  Y   │  U   │  I   │  O   │  P   │  =   │ Row2
-         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │ Tab  │  A   │  S   │  D   │  F   │  G   │   │  H   │  J   │  K   │  L   │  ;   │  '   │ Row3
-         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │LShft │  Z   │  X   │  C   │  V   │  B   │   │  N   │  M   │  ,   │  .   │  /   │RShft │ Row4
-         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │      │      │      │  \   │ Tab  │      │   │ Spc  │Lo+Bs │^Ctrl │ PgDn │  [   │  ]   │ Row5 (kciuk)
-         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │      │      │      │ Ent  │LShft │ Spc  │   │ LAlt │ LGUI │      │      │      │      │ Row6 (kciuk)
-         * └──────┴──────┴──────┴──────┴──────┴──────┘   └──────┴──────┴──────┴──────┴──────┴──────┘
+         * Row↑=D21 … Row↓=D10  (Row 6 = fizyczny TOP, Row 0 = fizyczny BOT/kciuk)
          *
-         * Kciuk prawy (Row5): Spc / LT(LOWER,Bspc) / MT(Ctrl,PgUp) / PgDn / [ / ]
-         * Kciuk prawy (Row6): LAlt / LGUI
+         * ┌──────┬──────┬──────┬──────┬──────┬──────┐   ┌──────┬──────┬──────┬──────┬──────┬──────┐
+         * │  F1  │  F2  │  F3  │  F4  │  F5  │  F6  │   │  F7  │  F8  │  F9  │  F10 │  F11 │  F12 │ Row6 D21↑ TOP
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │ Esc  │  1   │  2   │  3   │  4   │  5   │   │  6   │  7   │  8   │  9   │  0   │  -   │ Row5 D20
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │  `   │  Q   │  W   │  E   │  R   │  T   │   │  Y   │  U   │  I   │  O   │  P   │  =   │ Row4 D19
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │ Tab  │  A   │  S   │  D   │  F   │  G   │   │  H   │  J   │  K   │  L   │  ;   │  '   │ Row3 D15
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │LShft │  Z   │  X   │  C   │  V   │  B   │   │  N   │  M   │  ,   │  .   │  /   │RShft │ Row2 D14
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │      │      │      │  \   │ Tab  │      │   │ Spc  │Lo+Bs │^PgUp │ PgDn │  [   │  ]   │ Row1 D16 kciuk↑
+         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * │      │      │      │ Ent  │LShft │ Spc  │   │ LAlt │ LGUI │      │      │      │      │ Row0 D10↓ kciuk↓
+         * └──────┴──────┴──────┴──────┴──────┴──────┘   └──────┴──────┴──────┴──────┴──────┴──────┘
          */
         default_layer {
             label = "QWERTY";
             bindings = <
-/* ──────── Prawa strona (pos 0-5) ────────────────────────────────────── */
-/* Row0 F */ &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12     &none &none &none &none &none &none
-/* Row1 # */ &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS   &none &none &none &none &none &none
-/* Row2 Q */ &kp Y     &kp U     &kp I     &kp O     &kp P     &kp EQUAL   &none &none &none &none &none &none
-/* Row3 A */ &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT     &none &none &none &none &none &none
-/* Row4 Z */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT   &none &none &none &none &none &none
-/* Row5 T */ &kp SPACE &lt L_LOWER BSPC &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &none &none &none &none &none &none
-/* Row6 T */ &kp LALT  &kp LGUI  &none     &none     &none     &none       &none &none &none &none &none &none
+/* ──────── Prawa strona (pos 0-5): D6→inner … D9→outer ─────────────── */
+/* Row0 D10↓ kciuk dół  */ &kp LALT  &kp LGUI  &none     &none     &none     &none       &none &none &none &none &none &none
+/* Row1 D16  kciuk górny */ &kp SPACE &lt L_LOWER BSPC &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &none &none &none &none &none &none
+/* Row2 D14  N-rząd      */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT   &none &none &none &none &none &none
+/* Row3 D15  H-rząd      */ &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT     &none &none &none &none &none &none
+/* Row4 D19  Y-rząd      */ &kp Y     &kp U     &kp I     &kp O     &kp P     &kp EQUAL   &none &none &none &none &none &none
+/* Row5 D20  cyfry        */ &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS   &none &none &none &none &none &none
+/* Row6 D21↑ F-rząd (TOP)*/ &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12     &none &none &none &none &none &none
             >;
         };
 
