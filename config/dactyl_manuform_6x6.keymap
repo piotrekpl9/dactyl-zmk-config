@@ -59,16 +59,33 @@
          * Wiersz 6: kciuk dolny – &none na pozycjach bez fizycznego klawisza.
          * Dostosuj do swojego klastra kciuka.
          */
+        /*
+         * TEST MATRIX – prawa połowa
+         *
+         * Kolumny (od środka do zewnątrz):
+         *   D6(col5)→1/q/a/z/F1/F7/[
+         *   D4(col4)→2/w/s/x/F2/F8/]
+         *   D5(col3)→3/e/d/c/F3/F9/;
+         *   D7(col2)→4/r/f/v/F4/F10/'
+         *   D8(col1)→5/t/g/b/F5/F11/,
+         *   D9(col0)→6/y/h/n/F6/F12/.
+         *
+         * Wiersze:
+         *   Row0=cyfry(1-6)  Row1=q-y  Row2=a-h  Row3=z-n
+         *   Row4=F1-F6       Row5=F7-F12          Row6=[]
+         *
+         * Lewa połowa (nie podłączona): klawisz P – nie powinien wystąpić
+         */
         default_layer {
             label = "QWERTY";
             bindings = <
-                &kp A &kp A &kp A &kp A &kp A &kp A   &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A   &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A   &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A   &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A   &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A   &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A   &kp A &kp A &kp A &kp A &kp A &kp A
+/* Row0 */ &kp P &kp P &kp P &kp P &kp P &kp P   &kp N1  &kp N2  &kp N3   &kp N4   &kp N5   &kp N6
+/* Row1 */ &kp P &kp P &kp P &kp P &kp P &kp P   &kp Q   &kp W   &kp E    &kp R    &kp T    &kp Y
+/* Row2 */ &kp P &kp P &kp P &kp P &kp P &kp P   &kp A   &kp S   &kp D    &kp F    &kp G    &kp H
+/* Row3 */ &kp P &kp P &kp P &kp P &kp P &kp P   &kp Z   &kp X   &kp C    &kp V    &kp B    &kp N
+/* Row4 */ &kp P &kp P &kp P &kp P &kp P &kp P   &kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6
+/* Row5 */ &kp P &kp P &kp P &kp P &kp P &kp P   &kp F7  &kp F8  &kp F9   &kp F10  &kp F11  &kp F12
+/* Row6 */ &kp P &kp P &kp P &kp P &kp P &kp P   &kp LBKT &kp RBKT &kp SEMI &kp SQT &kp COMMA &kp DOT
             >;
         };
 
