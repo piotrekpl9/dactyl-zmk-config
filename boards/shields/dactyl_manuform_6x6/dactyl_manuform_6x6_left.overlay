@@ -1,27 +1,26 @@
 /*
- * Dactyl Manuform 6x6 – nakładka DTS dla lewej połowy
+ * Dactyl Manuform 6x6 – nakładka DTS dla lewej połowy (peripheral)
  *
  * Kontroler: nice!nano v2 (nRF52840, kompatybilny z Pro Micro)
  *
- * Przypisanie pinów (Pro Micro / nice!nano v2):
- * ─────────────────────────────────────────────
- *  WIERSZE (dioda: col→row, pull-down):
- *    Wiersz 0 → Pro Micro pin 4  (P0.22 – D4)
- *    Wiersz 1 → Pro Micro pin 5  (P0.24 – C6)
- *    Wiersz 2 → Pro Micro pin 6  (P1.00 – D7)
- *    Wiersz 3 → Pro Micro pin 7  (P0.11 – E6)
- *    Wiersz 4 → Pro Micro pin 8  (P1.04 – B4)
- *    Wiersz 5 → Pro Micro pin 9  (P1.06 – B5)
+ * Okablowanie identyczne jak prawa strona (piny Pro Micro):
  *
- *  KOLUMNY (active-high):
- *    Kolumna 0 → Pro Micro pin 21 (P0.09 – F4)
- *    Kolumna 1 → Pro Micro pin 20 (P0.10 – F5)
- *    Kolumna 2 → Pro Micro pin 19 (P1.11 – F6)
- *    Kolumna 3 → Pro Micro pin 18 (P1.13 – F7)
- *    Kolumna 4 → Pro Micro pin 15 (P1.15 – B1)
- *    Kolumna 5 → Pro Micro pin 14 (P1.02 – B3)
+ * WIERSZE (row) – diody col→row, pull-down:
+ *   Row 0 → D10  Pro Micro 10  (dolny pin – kciuk dół)
+ *   Row 1 → D16  Pro Micro 16
+ *   Row 2 → D14  Pro Micro 14
+ *   Row 3 → D15  Pro Micro 15
+ *   Row 4 → D19  Pro Micro 19
+ *   Row 5 → D20  Pro Micro 20
+ *   Row 6 → D21  Pro Micro 21  (górny pin – F-klawisze)
  *
- * Dostosuj numery pinów do swojego konkretnego okablowania!
+ * KOLUMNY (col) – active-high:
+ *   Col 0 → D9   Pro Micro  9  (zewnętrzny)
+ *   Col 1 → D8   Pro Micro  8
+ *   Col 2 → D7   Pro Micro  7
+ *   Col 3 → D5   Pro Micro  5
+ *   Col 4 → D4   Pro Micro  4  (wewnętrzny, zamieniony z D6 w transformacji)
+ *   Col 5 → D6   Pro Micro  6
  */
 
 #include "dactyl_manuform_6x6.dtsi"
@@ -33,21 +32,22 @@
         diode-direction = "col2row";
 
         row-gpios
-            = <&pro_micro 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 0 */
-            , <&pro_micro 5  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 1 */
-            , <&pro_micro 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 2 */
-            , <&pro_micro 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 3 */
-            , <&pro_micro 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 4 */
-            , <&pro_micro 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Wiersz 5 */
+            = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 0 – D10 */
+            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 1 – D16 */
+            , <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 2 – D14 */
+            , <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 3 – D15 */
+            , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 4 – D19 */
+            , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 5 – D20 */
+            , <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* Row 6 – D21 */
             ;
 
         col-gpios
-            = <&pro_micro 21 GPIO_ACTIVE_HIGH>   /* Kolumna 0 */
-            , <&pro_micro 20 GPIO_ACTIVE_HIGH>   /* Kolumna 1 */
-            , <&pro_micro 19 GPIO_ACTIVE_HIGH>   /* Kolumna 2 */
-            , <&pro_micro 18 GPIO_ACTIVE_HIGH>   /* Kolumna 3 */
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH>   /* Kolumna 4 */
-            , <&pro_micro 14 GPIO_ACTIVE_HIGH>   /* Kolumna 5 */
+            = <&pro_micro 9  GPIO_ACTIVE_HIGH>   /* Col 0 – D9  (zewnętrzny) */
+            , <&pro_micro 8  GPIO_ACTIVE_HIGH>   /* Col 1 – D8  */
+            , <&pro_micro 7  GPIO_ACTIVE_HIGH>   /* Col 2 – D7  */
+            , <&pro_micro 5  GPIO_ACTIVE_HIGH>   /* Col 3 – D5  */
+            , <&pro_micro 4  GPIO_ACTIVE_HIGH>   /* Col 4 – D4  (wewnętrzny) */
+            , <&pro_micro 6  GPIO_ACTIVE_HIGH>   /* Col 5 – D6  */
             ;
     };
 };
