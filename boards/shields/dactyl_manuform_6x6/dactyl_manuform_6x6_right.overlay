@@ -32,6 +32,7 @@
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN_RIGHT";
         diode-direction = "col2row";
+        col-offset = <6>;
 
         /* Wiersze = wejścia (INPUT), pull-down aktywny */
         row-gpios
@@ -45,14 +46,21 @@
             ;
 
         /* Kolumny = wyjścia (OUTPUT), sterowane high */
-        /* Kolejność identyczna jak lewa: od wewnętrznej (D4) do zewnętrznej (D9) */
+        /* col-offset=6: col lokalny N → col N+6 w transformacji
+         * Transformacja: RC(r,6)=pos5, RC(r,7)=pos4, RC(r,8)=pos3, RC(r,9)=pos2, RC(r,10)=pos0, RC(r,11)=pos1
+         * Col 0 (→col6) = D9 mały palec  → pos5 = EQUAL
+         * Col 1 (→col7) = D8             → pos4 = P
+         * Col 2 (→col8) = D7             → pos3 = O
+         * Col 3 (→col9) = D5             → pos2 = I
+         * Col 4 (→col10)= D4 kciuk-side  → pos0 = Y
+         * Col 5 (→col11)= D6             → pos1 = U */
         col-gpios
-            = <&pro_micro 4  GPIO_ACTIVE_HIGH>   /* Col 0 – D4  (wewnętrzna) */
-            , <&pro_micro 6  GPIO_ACTIVE_HIGH>   /* Col 1 – D6  */
-            , <&pro_micro 5  GPIO_ACTIVE_HIGH>   /* Col 2 – D5  */
-            , <&pro_micro 7  GPIO_ACTIVE_HIGH>   /* Col 3 – D7  */
-            , <&pro_micro 8  GPIO_ACTIVE_HIGH>   /* Col 4 – D8  */
-            , <&pro_micro 9  GPIO_ACTIVE_HIGH>   /* Col 5 – D9  (zewnętrzna) */
+            = <&pro_micro 9  GPIO_ACTIVE_HIGH>   /* Col 0→6  – D9  (zewnętrzna, mały palec) */
+            , <&pro_micro 8  GPIO_ACTIVE_HIGH>   /* Col 1→7  – D8  */
+            , <&pro_micro 7  GPIO_ACTIVE_HIGH>   /* Col 2→8  – D7  */
+            , <&pro_micro 5  GPIO_ACTIVE_HIGH>   /* Col 3→9  – D5  */
+            , <&pro_micro 4  GPIO_ACTIVE_HIGH>   /* Col 4→10 – D4  (kciuk-side) */
+            , <&pro_micro 6  GPIO_ACTIVE_HIGH>   /* Col 5→11 – D6  */
             ;
     };
 };
