@@ -45,13 +45,14 @@
             ;
 
         /* Kolumny = wyjścia (OUTPUT), sterowane high */
+        /* Kolejność identyczna jak lewa: od wewnętrznej (D4) do zewnętrznej (D9) */
         col-gpios
-            = <&pro_micro 9  GPIO_ACTIVE_HIGH>   /* Col 0 – D9  P1.06 */
-            , <&pro_micro 8  GPIO_ACTIVE_HIGH>   /* Col 1 – D8  P1.04 */
-            , <&pro_micro 7  GPIO_ACTIVE_HIGH>   /* Col 2 – D7  P0.11 */
-            , <&pro_micro 5  GPIO_ACTIVE_HIGH>   /* Col 3 – D5  P0.24 (zamienione) */
-            , <&pro_micro 4  GPIO_ACTIVE_HIGH>   /* Col 4 – D4  P0.22 (zamienione) */
-            , <&pro_micro 6  GPIO_ACTIVE_HIGH>   /* Col 5 – D6  P1.00 */
+            = <&pro_micro 4  GPIO_ACTIVE_HIGH>   /* Col 0 – D4  (wewnętrzna) */
+            , <&pro_micro 6  GPIO_ACTIVE_HIGH>   /* Col 1 – D6  */
+            , <&pro_micro 5  GPIO_ACTIVE_HIGH>   /* Col 2 – D5  */
+            , <&pro_micro 7  GPIO_ACTIVE_HIGH>   /* Col 3 – D7  */
+            , <&pro_micro 8  GPIO_ACTIVE_HIGH>   /* Col 4 – D8  */
+            , <&pro_micro 9  GPIO_ACTIVE_HIGH>   /* Col 5 – D9  (zewnętrzna) */
             ;
     };
 };
