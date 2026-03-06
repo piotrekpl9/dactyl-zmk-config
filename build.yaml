@@ -1,9 +1,10 @@
 ---
 include:
-  # Lewa połowa (peripheral)
+  # Lewa połowa (central) – ZMK Studio przez USB
   - board: nice_nano//zmk
     shield: dactyl_manuform_6x6_left
-  - board: nice_nano//zmk
-    shield: dactyl_manuform_6x6_right
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+  # Prawa połowa (peripheral)
+  - board: nice_nano//zmk
+    shield: dactyl_manuform_6x6_right
