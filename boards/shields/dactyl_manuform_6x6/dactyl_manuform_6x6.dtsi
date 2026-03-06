@@ -21,7 +21,7 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        /* zmk,matrix_transform – nie używamy; transform wskazuje physical_layout */
+        zmk,matrix_transform = &default_transform;
     };
 
     /*
