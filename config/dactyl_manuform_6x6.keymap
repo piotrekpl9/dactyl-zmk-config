@@ -32,6 +32,7 @@
 #define L_LOWER  1
 #define L_RAISE  2
 #define L_ADJUST 3
+#define L_BT     4
 
 / {
     keymap {
@@ -65,7 +66,7 @@
             bindings = <
 /* ──── Prawa (pos 0-5: inner→outer) ──────────────── Lewa (pos 6-11: inner→outer) ── */
 /* Row0 kciuk dół   */ &kp LBKT  &kp RBKT  &kp RSHFT &kp RET   &none    &none      &kp LGUI  &kp LALT  &bt BT_CLR &kp RET   &none    &none
-/* Row1 kciuk górny */ &kp SPACE &lt L_LOWER BSPC &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &lt L_RAISE RET &kp LGUI &kp LALT  &kp DEL   &kp HOME &bt BT_NXT
+/* Row1 kciuk górny */ &kp SPACE &lt L_LOWER BSPC &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &lt L_RAISE RET &kp LGUI &kp LALT  &kp DEL   &kp HOME &mo L_BT
 /* Row2 N/B-rząd    */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RSHFT  &kp B     &kp V     &kp C     &kp X     &kp Z    &kp LSHFT
 /* Row3 H/G-rząd    */ &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT    &kp G     &kp F     &kp D     &kp S     &kp A    &kp TAB
 /* Row4 Y/T-rząd    */ &kp Y     &kp U     &kp I     &kp O     &kp P    &kp EQUAL  &kp T     &kp R     &kp E     &kp W     &kp Q    &kp GRAVE
@@ -124,6 +125,24 @@
                 &trans      &none        &none        &none        &none        &none           &none        &none  &none  &none  &none  &trans
                 &trans      &none        &none        &none        &none        &none           &none        &none  &none  &none  &none  &trans
                 &none       &none        &none        &none        &none        &none           &none        &none  &none  &none  &none  &none
+            >;
+        };
+        /* ══════════════════════════════════════════════════════════════════
+         * WARSTWA 4 – BT (wybór profilu Bluetooth)
+         * Aktywacja: przytrzymaj klawisz END (lewy outer kciuk górny)
+         * F1=profil0, F2=profil1, F3=profil2, F4=profil3, F5=profil4
+         * ══════════════════════════════════════════════════════════════════
+         */
+        bt_layer {
+            label = "BT";
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0    &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
