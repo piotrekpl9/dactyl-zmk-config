@@ -42,12 +42,15 @@
             ;
 
         col-gpios
-            = <&pro_micro 9  GPIO_ACTIVE_HIGH>   /* Col 0 – D9  (zewnętrzny) */
-            , <&pro_micro 8  GPIO_ACTIVE_HIGH>   /* Col 1 – D8  */
-            , <&pro_micro 7  GPIO_ACTIVE_HIGH>   /* Col 2 – D7  */
-            , <&pro_micro 5  GPIO_ACTIVE_HIGH>   /* Col 3 – D5  */
-            , <&pro_micro 4  GPIO_ACTIVE_HIGH>   /* Col 4 – D4  (wewnętrzny) */
-            , <&pro_micro 6  GPIO_ACTIVE_HIGH>   /* Col 5 – D6  */
+            /* Kolejność odwrócona względem prawej – lewa jest lustrzana:
+             * col6 = D4 (wewnętrzny, przy środku klawiatury) → keymap pos 6
+             * col11= D9 (zewnętrzny)                         → keymap pos 11 */
+            = <&pro_micro 4  GPIO_ACTIVE_HIGH>   /* Col 6  – D4  (wewnętrzny) */
+            , <&pro_micro 6  GPIO_ACTIVE_HIGH>   /* Col 7  – D6  */
+            , <&pro_micro 5  GPIO_ACTIVE_HIGH>   /* Col 8  – D5  */
+            , <&pro_micro 7  GPIO_ACTIVE_HIGH>   /* Col 9  – D7  */
+            , <&pro_micro 8  GPIO_ACTIVE_HIGH>   /* Col 10 – D8  */
+            , <&pro_micro 9  GPIO_ACTIVE_HIGH>   /* Col 11 – D9  (zewnętrzny) */
             ;
     };
 };
