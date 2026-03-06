@@ -8,3 +8,6 @@ include:
   # Prawa połowa (peripheral)
   - board: nice_nano//zmk
     shield: dactyl_manuform_6x6_right
+  # Reset ustawień BLE (jednorazowo)
+  - board: nice_nano//zmk
+    shield: settings_reset
