@@ -17,6 +17,7 @@
  *   1 – LOWER  (symbole, F1–F12)
  *   2 – RAISE  (nawigacja, media)
  *   3 – ADJUST (Bluetooth, reset)
+ *   4 – BT     (wybór profilu BT)
  *
  * UWAGA: Wiersze 5 i 6 (klaster kciuka) mają &none na pozycjach
  * bez fizycznego klawisza. Dostosuj do swojego budowania.
