@@ -28,11 +28,15 @@
 #include "dactyl_manuform_6x6.dtsi"
 
 / {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &right_transform;
+    };
+
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN_RIGHT";
         diode-direction = "col2row";
-        col-offset = <6>;
 
         /* Wiersze = wejścia (INPUT), pull-down aktywny */
         row-gpios

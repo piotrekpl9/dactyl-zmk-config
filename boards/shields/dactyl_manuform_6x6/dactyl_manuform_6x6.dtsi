@@ -35,6 +35,18 @@
      *   RC(r,0) RC(r,1) RC(r,2) RC(r,3) RC(r,4) RC(r,5)
      *   = D4(inner) D6  D5  D7  D8  D9(outer)
      */
+    /*
+     * Transformacja dla lewej połowy (central, cols 0-5).
+     * Prawa połowa (peripheral) ma osobną transformację w right.overlay z col-offset=6.
+     *
+     * Kolejność pozycji w keymapie (każdy wiersz, 12 klawiszy):
+     *   pos 0-5  = prawa strona: inner(D4)→D6→D5→D7→D8→outer(D9)
+     *   pos 6-11 = lewa strona:  inner(D4)→D6→D5→D7→D8→outer(D9)
+     *
+     * Prawa cols po col-offset=6: lokalny col0→global6, col1→7, col2→8, col3→9, col4→10, col5→11
+     * Kolejność prawej w overlay: D9(col0), D8(col1), D7(col2), D5(col3), D4(col4), D6(col5)
+     * → global: D9=6, D8=7, D7=8, D5=9, D4=10, D6=11
+     */
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <12>;
@@ -47,6 +59,27 @@
             RC(4,10) RC(4,11) RC(4,9) RC(4,8) RC(4,7) RC(4,6)   RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5)
             RC(5,10) RC(5,11) RC(5,9) RC(5,8) RC(5,7) RC(5,6)   RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4) RC(5,5)
             RC(6,10) RC(6,11) RC(6,9) RC(6,8) RC(6,7) RC(6,6)   RC(6,0) RC(6,1) RC(6,2) RC(6,3) RC(6,4) RC(6,5)
+        >;
+    };
+
+    /*
+     * Transformacja dla prawej połowy (peripheral).
+     * col-offset=6: lokalny col N → globalny col N+6
+     * Cols w overlay: D9(0→6), D8(1→7), D7(2→8), D5(3→9), D4(4→10), D6(5→11)
+     */
+    right_transform: keymap_transform_1 {
+        compatible = "zmk,matrix-transform";
+        columns = <6>;
+        rows = <7>;
+        col-offset = <6>;
+        map = <
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5)
+            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)
+            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)
+            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)
+            RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5)
+            RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4) RC(5,5)
+            RC(6,0) RC(6,1) RC(6,2) RC(6,3) RC(6,4) RC(6,5)
         >;
     };
 
