@@ -28,11 +28,6 @@
 #include "dactyl_manuform_6x6.dtsi"
 
 / {
-    chosen {
-        zmk,kscan = &kscan0;
-        zmk,matrix-transform = &right_transform;
-    };
-
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN_RIGHT";
@@ -67,4 +62,8 @@
             , <&pro_micro 6  GPIO_ACTIVE_HIGH>   /* Col 5→11 – D6  */
             ;
     };
+};
+
+&default_transform {
+    col-offset = <6>;
 };
