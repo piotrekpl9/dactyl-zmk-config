@@ -56,7 +56,7 @@
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
          * │LShft │  Z   │  X   │  C   │  V   │  B   │   │  N   │  M   │  ,   │  .   │  /   │RShft │ Row2 D14
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │ End  │Home  │ Del  │ LAlt │ LGUI │Ra+Rt │   │ Spc  │Lo+Bs │^PgUp │ PgDn │  [   │  ]   │ Row1 D16 kciuk↑
+         * │             │ Del  │ LAlt │ LGUI │Ra+Rt │   │ Spc  |  ret │^PgUp │ PgDn │  [   │  ]   │ Row1 D16 kciuk↑
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
          * │      │      │ Ent  │LShft │ LAlt │ LGUI │   │ LAlt │ LGUI │RShft │ Ent  │      │      │ Row0 D10↓ kciuk↓
          * └──────┴──────┴──────┴──────┴──────┴──────┘   └──────┴──────┴──────┴──────┴──────┴──────┘
@@ -66,8 +66,8 @@
             bindings = <
 /* ──── Prawa (pos 0-5: inner→outer) ──────────────── Lewa (pos 6-11: inner→outer) ── */
 /* Row0 kciuk dół   */ &kp LBKT  &kp RBKT  &kp RSHFT &kp RET   &none    &none      &kp LGUI  &kp LALT  &bt BT_CLR &kp RET   &none    &none
-/* Row1 kciuk górny */ &kp SPACE &lt L_LOWER BSPC &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &lt L_RAISE RET &kp LGUI &kp LALT  &kp DEL   &kp HOME &mo L_BT
-/* Row2 N/B-rząd    */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RSHFT  &kp B     &kp V     &kp C     &kp X     &kp Z    &kp LSHFT
+/* Row1 kciuk górny */ &kp SPACE &kp RET &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &lt L_RAISE RET &kp LGUI &kp LALT  &kp DEL   &kp HOME &mo L_BT
+/* Row2 N/B-rząd    */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &mo L_BT  &kp B     &kp V     &kp C     &kp X     &kp Z    &kp LSHFT
 /* Row3 H/G-rząd    */ &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT    &kp G     &kp F     &kp D     &kp S     &kp A    &kp TAB
 /* Row4 Y/T-rząd    */ &kp Y     &kp U     &kp I     &kp O     &kp P    &kp EQUAL  &kp T     &kp R     &kp E     &kp W     &kp Q    &kp GRAVE
 /* Row5 cyfry        */ &kp N6    &kp N7    &kp N8    &kp N9    &kp N0   &kp MINUS  &kp N5    &kp N4    &kp N3    &kp N2    &kp N1   &kp ESC
@@ -142,7 +142,7 @@
                 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0    &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0
             >;
         };
     };
