@@ -65,7 +65,7 @@
             label = "QWERTY";
             bindings = <
 /* ──── Prawa (pos 0-5: inner→outer) ──────────────── Lewa (pos 6-11: inner→outer) ── */
-/* Row0 kciuk dół   */ &kp LBKT  &kp RBKT  &kp RSHFT &kp RET   &none    &none      &kp LGUI  &kp LALT  &bt LGUI &kp RET   &none    &none
+/* Row0 kciuk dół   */ &kp LBKT  &kp RBKT  &kp RSHFT &kp RET   &none    &none      &kp LGUI  &kp LALT  &kp LGUI &kp RET   &none    &none
 /* Row1 kciuk górny */ &kp SPACE &kp RET &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &lt L_RAISE RET &kp LGUI &kp LALT  &kp DEL   &kp HOME &mo L_BT
 /* Row2 N/B-rząd    */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &mo L_BT  &kp B     &kp V     &kp C     &kp X     &kp Z    &kp LSHFT
 /* Row3 H/G-rząd    */ &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT    &kp G     &kp F     &kp D     &kp S     &kp A    &kp TAB
