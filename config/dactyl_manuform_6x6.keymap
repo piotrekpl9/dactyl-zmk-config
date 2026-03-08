@@ -49,7 +49,7 @@
          * │  F1  │  F2  │  F3  │  F4  │  F5  │  F6  │   │  F7  │  F8  │  F9  │  F10 │  F11 │  F12 │ Row6 D21↑ TOP
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
          * │ Esc  │  1   │  2   │  3   │  4   │  5   │   │  6   │  7   │  8   │  9   │  0   │  -   │ Row5 D20
-         * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
+         * ├──────┼──────┼──────hhhhhhhhhhhhhhhh┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
          * │  `   │  Q   │  W   │  E   │  R   │  T   │   │  Y   │  U   │  I   │  O   │  P   │  =   │ Row4 D19
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
          * │ Tab  │  A   │  S   │  D   │  F   │  G   │   │  H   │  J   │  K   │  L   │  ;   │  '   │ Row3 D15
@@ -58,14 +58,14 @@
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
          * │             │ Del  │ LAlt │ LGUI │ Ret  │   │ Spc  |  ret │^PgUp │ PgDn │  [   │  ]   │ Row1 D16 kciuk↑
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │      │      │ Ent  │LShft │ LAlt │ LGUI │   │ LAlt │LCTRL │RAISE │ Ent  │      │      │ Row0 D10↓ kciuk↓
+         * │      │      │ ---- │ ------ LAlt │ LGUI │   │ LAlt │LCTRL │RAISE │ Ent  │      │      │ Row0 D10↓ kciuk↓
          * └──────┴──────┴──────┴──────┴──────┴──────┘   └──────┴──────┴──────┴──────┴──────┴──────┘
          */
         default_layer {
             label = "QWERTY";
             bindings = <
 /* ──── Prawa (pos 0-5: inner→outer) ──────────────── Lewa (pos 6-11: inner→outer) ── */
-/* Row0 kciuk dół   */ &kp LBKT  &kp RBKT  &kp RSHFT &kp RET   &none    &none      &kp LGUI  &kp LALT  &kp LCTRL &mo L_RAISE &none    &none
+/* Row0 kciuk dół   */ &kp LBKT  &kp RBKT  &kp RSHFT &kp RET   &none    &none      &kp LGUI  &kp LALT  &kp LCTRL &kp RET   &none    &mo L_RAISE
 /* Row1 kciuk górny */ &kp SPACE &kp RET &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &kp RET   &kp LGUI &kp LALT  &kp DEL   &kp HOME &mo L_BT
 /* Row2 N/B-rząd    */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &mo L_BT  &kp B     &kp V     &kp C     &kp X     &kp Z    &kp LSHFT
 /* Row3 H/G-rząd    */ &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT    &kp G     &kp F     &kp D     &kp S     &kp A    &kp TAB
