@@ -50,7 +50,7 @@
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
          * │ Esc  │  1   │  2   │  3   │  4   │  5   │   │  6   │  7   │  8   │  9   │  0   │  -   │ Row5 D20
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-         * │  `   │  Q   │  W   │  E   │  R   │  T   │   │  Y   │  U   │  I   │  O   │  P   │  =   │ Row4 D19
+         * │  `   │  Q   │  W   │  E   │  R   │  T   │   │  Y │  U   │  I   │  O   │  P   │  =   │ Row4 D19
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
          * │ Tab  │  A   │  S   │  D   │  F   │  G   │   │  H   │  J   │  K   │  L   │  ;   │  '   │ Row3 D15
          * ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
@@ -64,8 +64,8 @@
         default_layer {
             label = "QWERTY";
             bindings = <
-/* Row0 kciuk dół   */ &kp DEL  &kp BSPC  &kp RSHFT &kp RET   &none    &none      &kp LGUI  &kp LALT  &kp LCTRL &mo L_RAISE &none    &none
-/* Row1 kciuk górny */ &kp SPACE &kp RET &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &kp LSHIFT   &kp LGUI &kp LALT  &kp DEL   &kp HOME &mo L_BT
+/* Row0 kciuk dół   */ &kp DEL  &kp BSPC  &kp BSPC  &kp DEL   &none    &none      &kp LGUI  &kp LALT  &kp LCTRL &mo L_RAISE &none    &none
+/* Row1 kciuk górny */ &kp SPACE &kp RET &kp LBKT  &kp RBKT  &kp LBKT &kp RBKT   &kp LSHIFT   &kp LGUI &kp LALT  &kp DEL   &kp HOME &mo L_BT
 /* Row2 N/B-rząd    */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &mo L_BT  &kp B     &kp V     &kp C     &kp X     &kp Z    &kp LSHFT
 /* Row3 H/G-rząd    */ &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT    &kp G     &kp F     &kp D     &kp S     &kp A    &kp TAB
 /* Row4 Y/T-rząd    */ &kp Y     &kp U     &kp I     &kp O     &kp P    &kp EQUAL  &kp T     &kp R     &kp E     &kp W     &kp Q    &kp GRAVE
