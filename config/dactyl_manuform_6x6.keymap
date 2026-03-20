@@ -64,7 +64,7 @@
         default_layer {
             label = "QWERTY";
             bindings = <
-/* Row0 kciuk dół   */ &kp LBKT  &kp RBKT  &kp RSHFT &kp RET   &none    &none      &kp LGUI  &kp LALT  &kp LCTRL &mo L_RAISE &none    &none
+/* Row0 kciuk dół   */ &kp DEL  &kp BSPC  &kp RSHFT &kp RET   &none    &none      &kp LGUI  &kp LALT  &kp LCTRL &mo L_RAISE &none    &none
 /* Row1 kciuk górny */ &kp SPACE &kp RET &mt RCTRL PG_UP &kp PG_DN &kp LBKT &kp RBKT   &kp LSHIFT   &kp LGUI &kp LALT  &kp DEL   &kp HOME &mo L_BT
 /* Row2 N/B-rząd    */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &mo L_BT  &kp B     &kp V     &kp C     &kp X     &kp Z    &kp LSHFT
 /* Row3 H/G-rząd    */ &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT    &kp G     &kp F     &kp D     &kp S     &kp A    &kp TAB
@@ -99,7 +99,7 @@
             label = "RAISE";
             bindings = <
                 &trans   &trans   &trans   &trans   &trans   &trans     &trans    &trans    &trans    &trans    &trans    &trans
-                &kp UP   &kp HOME  &kp PG_UP &trans  &trans   &trans     &trans    &trans    &trans    &trans    &trans    &trans
+                &kp UP   &kp /HOME  &kp PG_UP &trans  &trans   &trans     &trans    &trans    &trans    &trans    &trans    &trans
                 &kp PG_DN &trans  &trans   &trans   &trans   &trans     &trans    &trans    &trans    &trans    &trans    &trans
                 &kp LEFT &kp DOWN &kp UP   &kp RIGHT &trans  &trans     &trans    &trans    &trans    &trans    &trans    &trans
                 &trans   &trans   &trans   &trans   &trans   &trans     &trans    &trans    &trans    &trans    &trans    &trans
