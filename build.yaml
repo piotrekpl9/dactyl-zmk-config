@@ -8,3 +8,6 @@ include:
     shield: dactyl_manuform_6x6_right
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+  # Reset ustawień BLE (jednorazowo)
+  - board: nice_nano/nrf52840/zmk
+    shield: settings_reset
