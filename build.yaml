@@ -14,6 +14,12 @@ include:
     shield: dactyl_manuform_6x6_right
     snippet: zmk-usb-logging
     artifact-name: dactyl_right_DEBUG_usblog
+  # DIAGNOSTYKA: lewa (central) z logowaniem USB (BEZ Studio – USB zajęte przez log)
+  # Wgraj na lewą, podłącz USB, czytaj serial – widać dlaczego central odrzuca parowanie (err 9)
+  - board: nice_nano/nrf52840/zmk
+    shield: dactyl_manuform_6x6_left
+    snippet: zmk-usb-logging
+    artifact-name: dactyl_left_DEBUG_usblog
   # Reset ustawień BLE (jednorazowo)
   - board: nice_nano/nrf52840/zmk
     shield: settings_reset
