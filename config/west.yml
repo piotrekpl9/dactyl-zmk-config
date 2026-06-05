@@ -5,10 +5,12 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      # Przypięte do stabilnego taga zamiast ruchomego main:
+      # Przypięte do KONKRETNEGO commitu main zamiast ruchomego "main":
       # central i peripheral MUSZĄ być budowane z identycznej wersji ZMK,
-      # inaczej split BLE nie zestawi szyfrowania (Security failed / timeout 0x08).
-      revision: v0.3.0
+      # inaczej split BLE nie zestawi szyfrowania (Security failed err 9 / timeout 0x08).
+      # NIE używać taga v0.x – jest za stary dla Zephyr 4.1 (Invalid BOARD / KeyError qualifiers).
+      # Ten SHA to main z ~2026-06, zgodny z migracją do board variant nice_nano/nrf52840/zmk.
+      revision: 773dec58eaacaef4703b3e4595e50bd71f6cad3d
       import: app/west.yml
   self:
     path: config
