@@ -8,6 +8,12 @@ include:
   # Prawa połowa (peripheral)
   - board: nice_nano/nrf52840/zmk
     shield: dactyl_manuform_6x6_right
+  # DIAGNOSTYKA: prawa (peripheral) z logowaniem USB
+  # Wgraj na prawą, podłącz USB, czytaj serial (115200) – widać skan matrycy i próby BLE
+  - board: nice_nano/nrf52840/zmk
+    shield: dactyl_manuform_6x6_right
+    snippet: zmk-usb-logging
+    artifact-name: dactyl_right_DEBUG_usblog
   # Reset ustawień BLE (jednorazowo)
   - board: nice_nano/nrf52840/zmk
     shield: settings_reset
