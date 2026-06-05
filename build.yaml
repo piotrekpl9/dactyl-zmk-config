@@ -23,3 +23,10 @@ include:
   # Reset ustawień BLE (jednorazowo)
   - board: nice_nano/nrf52840/zmk
     shield: settings_reset
+  # DIAGNOSTYKA: settings_reset z logiem USB
+  # Wgraj na central, podłącz USB, czytaj serial – widać CZY reset faktycznie
+  # czyści 'peripheral_addresses' (bond split). Potwierdzenie zamiast zgadywania.
+  - board: nice_nano/nrf52840/zmk
+    shield: settings_reset
+    snippet: zmk-usb-logging
+    artifact-name: settings_reset_DEBUG_usblog
