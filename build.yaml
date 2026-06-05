@@ -30,3 +30,14 @@ include:
     shield: settings_reset
     snippet: zmk-usb-logging
     artifact-name: settings_reset_DEBUG_usblog
+  # NAPRAWA: prawa (peripheral) z wymuszonym czyszczeniem bondu przy KAŻDYM starcie.
+  # settings_reset NIE robi 'Erasing' na prawej połowie (potwierdzone logiem) –
+  # peripheral nosi stary bond centrala w kółko → directed adv + Security err 9.
+  # CLEAR_BONDS_ON_START czyści bond przez bt_unpair (inna ścieżka niż erase partycji).
+  # Wgraj na prawą JEDNORAZOWO żeby wyczyścić, potem normalny right.uf2 bez tej flagi.
+  # Log USB potwierdzi "Clearing all existing BLE bond information".
+  - board: nice_nano/nrf52840/zmk
+    shield: dactyl_manuform_6x6_right
+    snippet: zmk-usb-logging
+    cmake-args: -DCONFIG_ZMK_BLE_CLEAR_BONDS_ON_START=y
+    artifact-name: dactyl_right_CLEARBONDS
